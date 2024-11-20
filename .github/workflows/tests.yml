@@ -27,7 +27,7 @@ jobs:
             run: npm ci
 
           - name: Run Jest Tests
-            run: npm-test
+            run: npm test
 
           - name: Archive Jest Test Results
             if: always()
