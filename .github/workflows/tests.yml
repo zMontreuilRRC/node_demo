@@ -1,0 +1,24 @@
+name: Run Jest Tests
+
+# decide what trigger will cause our jobs to run
+on: [pull_request]
+
+# what runs when the "on" trigger occurs
+jobs:
+    build:
+        # what operating system the job runs on
+        runs-on: ubuntu-latest
+
+        # what occurs during the job
+        steps:
+          - uses: actions.checkout@v4
+          - name: use Node.js
+            uses: actions/setup-node@v3
+            with:
+                node-version: "20.x"
+
+          - name: Install Dependencies
+            run: npm ci
+
+          - name: Run Jest Tests
+            run: npm-test
